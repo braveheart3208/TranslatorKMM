@@ -33,7 +33,8 @@ kotlin {
                 //put your multiplatform dependencies here
                 implementation(compose.runtime)
                 implementation(compose.foundation)
-                implementation(compose.material)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
             }
@@ -52,4 +53,16 @@ android {
     defaultConfig {
         minSdk = 28
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
+    }
+}
+
+dependencies {
+    implementation("androidx.core:core:1.10.1")
+    commonMainApi("dev.icerock.moko:mvvm-core:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-compose:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-flow:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-flow-compose:0.16.1")
 }
